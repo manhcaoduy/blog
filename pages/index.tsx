@@ -1,7 +1,3 @@
-import type { NextPage } from 'next';
-
-const App: NextPage = () => {
+export default function App() {
   return <></>;
-};
-
-export default App;
+}
