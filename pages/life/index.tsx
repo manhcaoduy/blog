@@ -1,7 +1,3 @@
-import { NextPage } from 'next';
-
-const Life: NextPage = () => {
+export default function Life() {
   return <></>;
-};
-
-export default Life;
+}

@@ -1,8 +1,18 @@
 import Footer from '../app/components/footer';
 import Header from '../app/components/header';
 import Layout from '../app/components/layout';
-import { AppPropsWithLayout } from '../app/types/layout';
 import '../styles/globals.css';
+import { NextPage } from 'next';
+import { AppProps } from 'next/app';
+import { ReactElement, ReactNode } from 'react';
+
+export type NextPageWithLayout = NextPage & {
+  getLayout?: (page: ReactElement) => ReactNode;
+};
+
+export type AppPropsWithLayout = AppProps & {
+  Component: NextPageWithLayout;
+};
 
 function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   const element = Component.getLayout ? (

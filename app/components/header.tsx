@@ -1,7 +1,6 @@
-import { NextPage } from 'next';
 import Link from 'next/link';
 
-const Header: NextPage = () => {
+export default function Header() {
   return (
     <>
       <div className={'pt-10 mb-10'}>
@@ -34,6 +33,4 @@ const Header: NextPage = () => {
       </div>
     </>
   );
-};
-
-export default Header;
+}

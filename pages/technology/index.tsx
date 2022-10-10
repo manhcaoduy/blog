@@ -1,7 +1,3 @@
-import { NextPage } from 'next';
-
-const Technology: NextPage = () => {
+export default function Technology() {
   return <></>;
-};
-
-export default Technology;
+}

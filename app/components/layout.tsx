@@ -4,7 +4,7 @@ type Props = {
   children: ReactNode;
 };
 
-const Layout = ({ children }: Props) => {
+export default function Layout({ children }: Props) {
   return (
     <>
       <div className={'bg-black min-h-screen text-white text-[14px] font-mono'}>
@@ -14,6 +14,4 @@ const Layout = ({ children }: Props) => {
       </div>
     </>
   );
-};
-
-export default Layout;
+}

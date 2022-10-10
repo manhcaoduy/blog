@@ -1,7 +1,3 @@
-import { NextPage } from 'next';
-
-const About: NextPage = () => {
+export default function About() {
   return <></>;
-};
-
-export default About;
+}

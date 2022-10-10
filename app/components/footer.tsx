@@ -1,7 +1,6 @@
-import { NextPage } from 'next';
 import Link from 'next/link';
 
-const Footer: NextPage = () => {
+export default function Footer() {
   return (
     <>
       <div className={'my-10'}>
@@ -21,6 +20,4 @@ const Footer: NextPage = () => {
       </div>
     </>
   );
-};
-
-export default Footer;
+}
