@@ -1,3 +1,4 @@
+import { defaultPostTags } from '../lib/helper/post';
 import Link from 'next/link';
 
 export default function Header() {
@@ -20,12 +21,13 @@ export default function Header() {
           <div className={'clear-right'} />
         </div>
         <div className={'flex gap-4'}>
-          <Link href="/life">
-            <a className={'text-blue-200 font-bold underline'}>Life</a>
-          </Link>
-          <Link href="/technology">
-            <a className={'text-blue-200 font-bold underline'}>Technology</a>
-          </Link>
+          {defaultPostTags.map((tag) => (
+            <>
+              <Link href={`/${tag}`}>
+                <a className={'text-blue-200 font-bold underline'}>Abc</a>
+              </Link>
+            </>
+          ))}
           <Link href="/about">
             <a className={'text-blue-200 font-bold underline'}>About</a>
           </Link>

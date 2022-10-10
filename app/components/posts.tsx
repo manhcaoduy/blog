@@ -1,28 +1,11 @@
-import { getMarkdownData, MarkdownData } from '../../app/lib/helper/markdown';
-import { getAllPostIds } from '../../app/lib/helper/post';
+import { MarkdownData } from '../lib/helper/markdown';
 import Link from 'next/link';
 
 interface Props {
   posts: MarkdownData[];
 }
 
-// @ts-ignore
-export async function getStaticProps({ params }) {
-  const postIds = getAllPostIds();
-  const posts: MarkdownData[] = [];
-  for (const postId of postIds) {
-    const markdownData = await getMarkdownData(postId);
-    posts.push(markdownData);
-  }
-
-  return {
-    props: {
-      posts,
-    },
-  };
-}
-
-export default function Life({ posts }: Props) {
+export default function Posts({ posts }: Props) {
   return (
     <>
       {posts.map((post) => (
