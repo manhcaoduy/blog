@@ -6,9 +6,13 @@ interface Props {
 }
 
 export async function getStaticPaths() {
-  const paths = getAllPostIds();
+  const postIds = getAllPostIds();
   return {
-    paths,
+    paths: postIds.map((postId) => ({
+      params: {
+        id: postId,
+      },
+    })),
     fallback: false,
   };
 }
@@ -26,9 +30,11 @@ export async function getStaticProps({ params }) {
 export default function Post({ markdownData }: Props) {
   return (
     <>
-      {markdownData.title}
+      <div className={'font-bold text-xl'}>{markdownData.title}</div>
       <br />
-      {markdownData.lastUpdate}
+      <div className={'font-sm'}>
+        <span className={'font-bold'}>{markdownData.lastUpdate}</span>
+      </div>
       <br />
       <div dangerouslySetInnerHTML={{ __html: markdownData.contentHtml }} />
     </>
