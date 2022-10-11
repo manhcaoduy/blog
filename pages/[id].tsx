@@ -1,8 +1,7 @@
 import Posts from '../app/components/posts';
-import { MarkdownData } from '../app/lib/helper/markdown';
-import { getAllMarkdownData } from '../app/lib/helper/post';
-
-const defaultPostTags = ['life', 'technology'];
+import { MarkdownData } from '../app/lib/helper/markdown/markdown';
+import { getAllMarkdownData } from '../app/lib/helper/post/post';
+import { titleTags } from '../app/lib/helper/post/post.const';
 
 interface Props {
   posts: MarkdownData[];
@@ -10,14 +9,13 @@ interface Props {
 
 export async function getStaticPaths() {
   const posts = await getAllMarkdownData();
-  const postTags: string[] = defaultPostTags;
+  const postTags: string[] = titleTags.map(tag => tag.tag);
+  console.log(`\n\n\n${postTags}\n\n\n`)
   for (const post of posts) {
     postTags.push(...post.tags);
   }
-  // @ts-ignore
-  const uniquePostTags = [...new Set(postTags)];
   return {
-    paths: uniquePostTags.map((tag) => ({
+    paths: postTags.map((tag) => ({
       params: {
         id: tag,
       },

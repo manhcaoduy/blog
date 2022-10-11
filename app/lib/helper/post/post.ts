@@ -1,8 +1,6 @@
-import { getMarkdownData, MarkdownData } from './markdown';
 import * as fs from 'fs';
-
-export const defaultPostTags = ['Life', 'Technology', 'Book'];
-export const postDirectory = './app/files/posts';
+import { getMarkdownData, MarkdownData } from '../markdown/markdown';
+import { postDirectory } from './post.const';
 
 export function getAllPostIds() {
   const fileNames = fs.readdirSync(postDirectory);

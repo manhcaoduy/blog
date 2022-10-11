@@ -1,7 +1,19 @@
-import { defaultPostTags } from '../lib/helper/post';
 import Link from 'next/link';
+import { titleTag, titleTags } from '../lib/helper/post/post.const';
 
-export default function Header() {
+interface Props {
+  categories: titleTag[];
+}
+
+export async function getStaticProps() {
+  return {
+    props: {
+      categories: titleTags
+    }
+  }
+}
+
+export default function Header({categories}: Props) {
   return (
     <>
       <div className={'pt-10 mb-10'}>
@@ -21,10 +33,10 @@ export default function Header() {
           <div className={'clear-right'} />
         </div>
         <div className={'flex gap-4'}>
-          {defaultPostTags.map((tag) => (
+          {titleTags.map((tag) => (
             <>
-              <Link href={`/${tag}`}>
-                <a className={'text-blue-200 font-bold underline'}>Abc</a>
+              <Link href={`/${tag.tag}`}>
+                <a className={'text-blue-200 font-bold underline'}>{tag.title}</a>
               </Link>
             </>
           ))}
