@@ -1,17 +1,9 @@
+import { MarkdownData, postDirectory } from '../../../config/config';
 import * as fs from 'fs';
 import matter from 'gray-matter';
 import path from 'path';
 import { remark } from 'remark';
 import html from 'remark-html';
-import { postDirectory } from '../post/post.const';
-
-export interface MarkdownData {
-  id: string;
-  title: string;
-  lastUpdate: string;
-  contentHtml: string;
-  tags: string[];
-}
 
 export async function getMarkdownData(id: string): Promise<MarkdownData> {
   const fullPath = path.join(postDirectory, `${id}.md`);

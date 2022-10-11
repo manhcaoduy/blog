@@ -1,5 +1,8 @@
-import { getMarkdownData, MarkdownData } from '../../app/lib/helper/markdown/markdown';
-import { getAllPostIds } from '../../app/lib/helper/post/post';
+import {
+  getMarkdownData,
+  MarkdownData,
+} from '../../app/lib/utils/markdown/markdown';
+import { getAllPostIds } from '../../app/lib/utils/post/post';
 
 interface Props {
   markdownData: MarkdownData;

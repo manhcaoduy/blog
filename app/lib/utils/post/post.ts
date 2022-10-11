@@ -1,6 +1,6 @@
+import { MarkdownData, postDirectory } from '../../../config/config';
+import { getMarkdownData } from '../markdown/markdown';
 import * as fs from 'fs';
-import { getMarkdownData, MarkdownData } from '../markdown/markdown';
-import { postDirectory } from './post.const';
 
 export function getAllPostIds() {
   const fileNames = fs.readdirSync(postDirectory);

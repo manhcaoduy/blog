@@ -6,8 +6,13 @@ const nextConfig = {
     return [
       {
         source: '/',
-        destination: '/life',
-        permanent: true,
+        destination: '/life/0',
+        permanent: false,
+      },
+      {
+        source: '/:tag',
+        destination: '/:tag/0',
+        permanent: false,
       },
     ];
   },

@@ -1,15 +1,17 @@
-import { MarkdownData } from '../lib/helper/markdown';
+import { MarkdownData } from '../config/config';
 import Link from 'next/link';
 
 interface Props {
   posts: MarkdownData[];
+  currentPage: number;
+  numPages: number;
 }
 
 export default function Posts({ posts }: Props) {
   return (
     <>
       {posts.map((post) => (
-        <>
+        <div key={post.id}>
           <div className={'mb-10'}>
             <div>
               <Link href={`/post/${post.id}`}>
@@ -28,7 +30,7 @@ export default function Posts({ posts }: Props) {
             </div>
             <br />
           </div>
-        </>
+        </div>
       ))}
     </>
   );

@@ -1,5 +1,6 @@
+import { titleTag, titleTags } from '../config/config';
 import Link from 'next/link';
-import { titleTag, titleTags } from '../lib/helper/post/post.const';
+import { Fragment } from 'react';
 
 interface Props {
   categories: titleTag[];
@@ -8,12 +9,12 @@ interface Props {
 export async function getStaticProps() {
   return {
     props: {
-      categories: titleTags
-    }
-  }
+      categories: titleTags,
+    },
+  };
 }
 
-export default function Header({categories}: Props) {
+export default function Header({ categories }: Props) {
   return (
     <>
       <div className={'pt-10 mb-10'}>
@@ -34,11 +35,13 @@ export default function Header({categories}: Props) {
         </div>
         <div className={'flex gap-4'}>
           {titleTags.map((tag) => (
-            <>
-              <Link href={`/${tag.tag}`}>
-                <a className={'text-blue-200 font-bold underline'}>{tag.title}</a>
+            <Fragment key={tag.tag}>
+              <Link href={`/${tag.tag}/0`}>
+                <a className={'text-blue-200 font-bold underline'}>
+                  {tag.title}
+                </a>
               </Link>
-            </>
+            </Fragment>
           ))}
           <Link href="/about">
             <a className={'text-blue-200 font-bold underline'}>About</a>
