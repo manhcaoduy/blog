@@ -13,9 +13,10 @@ export async function getMarkdownData(id: string): Promise<MarkdownData> {
   const contentHtml = processedContent.toString();
   return {
     id,
-    title: data['title'],
-    lastUpdate: data['lastUpdate'],
-    tags: data['tags'].split(','),
+    title: data['Title'],
+    lastUpdate: data['Date'],
+    tags: data['Tags'].split(','),
     contentHtml,
+    description: data['Description'],
   };
 }

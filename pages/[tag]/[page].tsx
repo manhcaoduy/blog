@@ -1,3 +1,4 @@
+import { FONT_MANIFEST } from 'next/dist/shared/lib/constants';
 import Posts from '../../app/components/posts';
 import {
   MarkdownData,
@@ -9,6 +10,7 @@ import { uniqueSlice } from '../../app/lib/utils/slice/slice';
 
 interface Props {
   posts: MarkdownData[];
+  tag: string;
   currentPage: number;
   numPages: number;
 }
@@ -61,6 +63,7 @@ export async function getStaticProps({ params }) {
   );
   return {
     props: {
+      tag: params.tag,
       posts,
       numPages,
       currentPage,
@@ -68,6 +71,7 @@ export async function getStaticProps({ params }) {
   };
 }
 
-export default function Tags({ posts, numPages, currentPage }: Props) {
-  return <Posts posts={posts} numPages={numPages} currentPage={currentPage} />;
+export default function Tags({ posts, numPages, currentPage, tag }: Props) {
+  console.log({tag});
+  return <Posts posts={posts} numPages={numPages} currentPage={currentPage} tag={tag} />;
 }

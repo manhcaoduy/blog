@@ -9,6 +9,7 @@ export interface MarkdownData {
   lastUpdate: string;
   contentHtml: string;
   tags: string[];
+  description: string;
 }
 
 export const titleTags: titleTag[] = [
@@ -27,4 +28,4 @@ export const titleTags: titleTag[] = [
 ];
 
 export const postDirectory = 'app/files/posts';
-export const numPostsPerPage = 2;
+export const numPostsPerPage = 5;
